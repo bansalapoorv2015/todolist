@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>To-Do list</title>
+<style>
+   
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+  color: white; 
+  text-align: center;
+}
+
+
+input {
+  margin: 0;
+  border-color: black;
+  border-radius: 15px;
+  width: 100%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+ul{
+    padding-top: 50px;
+}
+
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color:dark gray;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 17px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background-color: lightgrey;
+  font-size: 18px;
+  
+}
+.addbtn{
+    position: relative;
+    top: 41px;
+    left: 1500px;
+    background-color: white;
+    font-size: 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    border-color: gray;
+}
+.addbtn:hover {
+  background-color: black;
+  color:white;
+}
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+ul li:hover {
+  background: gray;
+}
+
+
+</style>
+</head>
+
+<body>
+    
+   <div class="contain">
+       <h1 style="background-color: black; height: 70px;" >Things to do</h1>
+       <span onclick="newElement()" class="addbtn">  <strong>+</strong>   </span>
+       <input id= myinput placeholder="Add more...." type="text">
+        <div class="list">
+            <ul id="myul">
+                <li>Workout</li>
+                <li class="checked">Make a To-Do list</li>
+                <li >Read a business blog</li>
+                <li>Learn web development</li>
+                <li>Writing Content</li>
+                <li>Assignments</li>
+                
+              
+            </ul>
+
+        </div>
+   </div>
+   <script >
+     var  mylist=document.getElementsByTagName('li');
+     var i;
+     for(i=0;i<mylist.length;i++)
+     {
+     var create=document.createElement("create");
+     var textnode=document.createTextNode("\u00d7");
+     create.appendChild(textnode);
+     create.className='close';
+     mylist[i].appendChild(create);
+     }
+     var close=document.getElementsByClassName('close');
+     var i;
+     for(i=0;i<close.length;i++)
+     {
+       close[i].onclick=function()
+      {
+        var x=this.parentElement;
+        x.style.display='none';
+      }
+     }
+
+
+     var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+function newElement() {
+  var newelement = document.createElement("newelement");
+  var newelementvalue = document.getElementById("myinput").value;
+  var t = document.createTextNode(newelementvalue);
+  li.appendChild(t);
+  if (newelementvalue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myul").appendChild(newelement);
+  }
+  document.getElementById("myinput").value = "";
+
+  var create=document.createElement("create");
+     var textnode=document.createTextNode("\u00d7");
+     create.appendChild(textnode);
+     create.className='close';
+     mylist[i].appendChild(create);
+
+ for(i=0;i<close.length;i++)
+     {
+       close[i].onclick=function()
+      {
+        var x=this.parentElement;
+        x.style.display='none';
+      }
+  }
+}
+
+
+   </script>
+</body>
+</html>
