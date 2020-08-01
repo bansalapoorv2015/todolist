@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,7 +55,7 @@ ul li {
 }
 .addbtn{
     position: relative;
-    top: 41px;
+    top:37px;
     left: 1500px;
     background-color: white;
     font-size: 1.5rem;
@@ -72,7 +73,17 @@ ul li:nth-child(odd) {
 ul li:hover {
   background: gray;
 }
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
 
+.close:hover{
+  background-color: black;
+  color:white;
+}
 
 </style>
 </head>
@@ -127,11 +138,11 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 function newElement() {
-  var newelement = document.createElement("newelement");
-  var newelementvalue = document.getElementById("myinput").value;
-  var t = document.createTextNode(newelementvalue);
-  li.appendChild(t);
-  if (newelementvalue === '') {
+  var newelement = document.createElement("li");
+  var inputValue = document.getElementById("myinput").value;
+  var t = document.createTextNode(inputValue);
+  newelement.appendChild(t);
+  if (inputValue === '') {
     alert("You must write something!");
   } else {
     document.getElementById("myul").appendChild(newelement);
